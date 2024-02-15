@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { add } = require('./arithmetica');
+const { add, subtract } = require('./arithmetica');
 const app = express();
 const port = 3000;
 
@@ -18,7 +18,10 @@ app.get('/add/:n/:m', (req, res) => {
 });
 
 app.get('/subtract/:n/:m', (req, res) => {
-    res.json(Number(req.params.n) - Number(req.params.m));
+    let n = Number(req.params.n);
+    let m = Number(req.params.m);
+    let subtraction = subtract(n, m);
+    res.json(sum);
 });
 
 app.get('/multiply/:n/:m', (req, res) => {
